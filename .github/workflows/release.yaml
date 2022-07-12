@@ -1,0 +1,11 @@
+name: Run semantic-release
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-commitlint-on-pr:
+    uses: ministryofjustice/ap-shared-github-actions/.github/workflows/release.yaml@main

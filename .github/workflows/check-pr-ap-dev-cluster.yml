@@ -1,0 +1,27 @@
+---
+name: "Check PR - Terraform Module"
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "./**"
+
+# These permissions are required to use AWS OIDC federate roles
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  terraform:
+    name: "Terraform"
+    uses: ministryofjustice/ap-shared-github-actions/.github/workflows/check-pr-workflow.yml@main
+    with:
+      github_action_access_role: arn:aws:iam::042130406152:role/GlobalGitHubActionAccess
+      working_directory: .
+      aws_region : "eu-west-1"
+      terraform_version: 1.2.2
+      terraform_backend_role: arn:aws:iam::042130406152:role/GlobalGitHubActionAdmin
+      terraform_provider_role_name: "GlobalGitHubActionAdmin"
