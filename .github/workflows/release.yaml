@@ -11,4 +11,4 @@ jobs:
   run-commitlint-on-pr:
     uses: ministryofjustice/ap-shared-github-actions/.github/workflows/release.yaml@main
     secrets:
-      GITHUB_TOKEN: ${{ secrets.BOT_GITHUB_TOKEN }}
+      token: ${{ secrets.BOT_GITHUB_TOKEN }}.github/workflows/release.yaml
