@@ -5,9 +5,8 @@ on:
   push:
     branches:
       - main
-      - action-fix
 
 jobs:
-  run-commitlint-on-pr:
+  release:
     uses: ministryofjustice/ap-shared-github-actions/.github/workflows/release.yaml@main
     secrets: inherit
