@@ -6,7 +6,7 @@ module "iam_assumable_role_external_dns" {
   create_role                   = true
   role_name_prefix              = "ExternalDNS"
   role_policy_arns              = [aws_iam_policy.external_dns.arn]
-  provider_url                  = replace(module.eks.cluster_oidc_issuer_url, "https://", "")
+  provider_url                  = module.eks.cluster_oidc_issuer_url
   oidc_fully_qualified_subjects = ["system:serviceaccount:external-dns:external-dns"]
   tags = {
     cluster = ${var.cluster_name}
