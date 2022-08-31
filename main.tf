@@ -26,6 +26,23 @@ module "eks" {
       metadata_http_tokens                 = "required"
       name_prefix                          = "${var.cluster_name}-main"
     }
+    prometheus_node_pool = {
+      create_launch_template               = true
+      metadata_http_endpoint               = "enabled"
+      metadata_http_put_response_hop_limit = 1
+      metadata_http_tokens                 = "required"
+      name_prefix                          = "${var.cluster_name}-prometheus"
+      k8s_labels = {
+        type = "prometheus"
+      }
+      taints = [
+        {
+          key    = "dedicated"
+          value  = "prometheus"
+          effect = "NO_SCHEDULE"
+        }
+      ]
+    }
   }
   node_groups_defaults = {
     ami_type         = "AL2_x86_64" # Amazon Linux 2
