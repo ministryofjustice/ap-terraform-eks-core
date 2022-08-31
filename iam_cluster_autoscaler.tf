@@ -1,3 +1,30 @@
+module "iam_assumable_role_cluster_autoscaler" {
+  source  = "git@github.com:ministryofjustice/ap-terraform-iam-roles.git//eks-role?ref=v1.3.0"
+  depends_on = [
+    module.eks
+  ]
+  create_role                   = true
+  role_name_prefix              = "ClusterAutoscaler"
+  role_policy_arns              = [aws_iam_policy.cluster_autoscaler.arn]
+  provider_url                  = module.eks.cluster_oidc_issuer_url
+  oidc_fully_qualified_subjects = ["system:serviceaccount:kube-system:cluster-autoscaler"]
+  tags = {
+    cluster = ${var.cluster_name}
+  }
+}
+
+resource "aws_iam_policy" "cluster_autoscaler" {
+  depends_on = [
+    module.eks
+  ]
+  name_prefix = "ClusterAutoscaler"
+  description = "EKS cluster-autoscaler policy for cluster ${module.eks.cluster_id}"
+  policy      = data.aws_iam_policy_document.cluster_autoscaler.json
+  tags = {
+    cluster = ${var.cluster_name}
+  }
+}
+
 data "aws_iam_policy_document" "cluster_autoscaler" {
   statement {
     actions = [
@@ -31,27 +58,4 @@ data "aws_iam_policy_document" "cluster_autoscaler" {
     resources = ["*"]
     sid       = "clusterAutoscalerOwn"
   }
-}
-
-module "iam_assumable_role_cluster_autoscaler" {
-  source  = "terraform-aws-modules/iam/aws//modules/iam-assumable-role-with-oidc"
-  version = "3.8.0"
-  depends_on = [
-    module.eks
-  ]
-
-  create_role                   = true
-  oidc_fully_qualified_subjects = ["system:serviceaccount:kube-system:cluster-autoscaler"]
-  provider_url                  = replace(module.eks.cluster_oidc_issuer_url, "https://", "")
-  role_name_prefix              = "${var.cluster_name}-autoscaler"
-  role_policy_arns              = [aws_iam_policy.cluster_autoscaler.arn]
-}
-
-resource "aws_iam_policy" "cluster_autoscaler" {
-  depends_on = [
-    module.eks
-  ]
-  description = "EKS cluster-autoscaler policy for cluster ${module.eks.cluster_id}"
-  name_prefix = "${var.cluster_name}-autoscaler"
-  policy      = data.aws_iam_policy_document.cluster_autoscaler.json
 }
