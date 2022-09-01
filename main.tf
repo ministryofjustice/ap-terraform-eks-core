@@ -26,19 +26,19 @@ module "eks" {
       metadata_http_tokens                 = "required"
       name_prefix                          = "${var.cluster_name}-main"
     }
-    prometheus_node_pool = {
+    core_infra_node_pool = {
       create_launch_template               = true
       metadata_http_endpoint               = "enabled"
       metadata_http_put_response_hop_limit = 1
       metadata_http_tokens                 = "required"
-      name_prefix                          = "${var.cluster_name}-prometheus"
+      name_prefix                          = "${var.cluster_name}-core-infra"
       k8s_labels = {
-        type = "prometheus"
+        type = "core-infra"
       }
       taints = [
         {
           key    = "dedicated"
-          value  = "prometheus"
+          value  = "core-infra"
           effect = "NO_SCHEDULE"
         }
       ]
