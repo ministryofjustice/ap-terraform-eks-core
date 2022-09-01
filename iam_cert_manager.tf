@@ -1,5 +1,5 @@
 module "iam_assumable_role_cert_manager" {
-  source                        = "git@github.com:ministryofjustice/ap-terraform-iam-roles.git//eks-role?ref=v1.3.0"
+  source = "git@github.com:ministryofjustice/ap-terraform-iam-roles.git//eks-role?ref=v1.3.0"
   depends_on = [
     module.eks
   ]
