@@ -9,7 +9,7 @@ module "iam_assumable_role_external_dns" {
   provider_url                  = module.eks.cluster_oidc_issuer_url
   oidc_fully_qualified_subjects = ["system:serviceaccount:external-dns:external-dns"]
   tags = {
-    cluster = ${var.cluster_name}
+    cluster = var.cluster_name
   }
 }
 
@@ -21,7 +21,7 @@ resource "aws_iam_policy" "external_dns" {
   description = "external dns policy for cluster ${module.eks.cluster_id}"
   policy      = data.aws_iam_policy_document.external_dns.json
   tags = {
-    cluster = ${var.cluster_name}
+    cluster = var.cluster_name
   }
 }
 

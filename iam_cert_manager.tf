@@ -9,7 +9,7 @@ module "iam_assumable_role_cert_manager" {
   provider_url                  = module.eks.cluster_oidc_issuer_url
   oidc_fully_qualified_subjects = ["system:serviceaccount:cert-manager:cert-manager"]
   tags = {
-    cluster = ${var.cluster_name}
+    cluster = var.cluster_name
   }
 }
 
@@ -21,7 +21,7 @@ resource "aws_iam_policy" "cert_manager" {
   description = "cert-manager policy for cluster ${module.eks.cluster_id}"
   policy      = data.aws_iam_policy_document.cert_manager.json
   tags = {
-    cluster = ${var.cluster_name}
+    cluster = var.cluster_name
   }
 }
 

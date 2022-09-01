@@ -9,7 +9,7 @@ module "iam_assumable_role_external_secrets" {
   provider_url                  = module.eks.cluster_oidc_issuer_url
   oidc_fully_qualified_subjects = ["system:serviceaccount:external-secrets:external-secrets"]
   tags = {
-    cluster = ${var.cluster_name}
+    cluster = var.cluster_name
   }
 }
 
@@ -21,7 +21,7 @@ resource "aws_iam_policy" "external_secrets" {
   description = "external_secrets policy for cluster ${module.eks.cluster_id}"
   policy      = data.aws_iam_policy_document.external_secrets.json
   tags = {
-    cluster = ${var.cluster_name}
+    cluster = var.cluster_name
   }
 }
 

@@ -9,7 +9,7 @@ module "iam_assumable_role_cluster_autoscaler" {
   provider_url                  = module.eks.cluster_oidc_issuer_url
   oidc_fully_qualified_subjects = ["system:serviceaccount:kube-system:cluster-autoscaler"]
   tags = {
-    cluster = ${var.cluster_name}
+    cluster = var.cluster_name
   }
 }
 
@@ -21,7 +21,7 @@ resource "aws_iam_policy" "cluster_autoscaler" {
   description = "EKS cluster-autoscaler policy for cluster ${module.eks.cluster_id}"
   policy      = data.aws_iam_policy_document.cluster_autoscaler.json
   tags = {
-    cluster = ${var.cluster_name}
+    cluster = var.cluster_name
   }
 }
 
