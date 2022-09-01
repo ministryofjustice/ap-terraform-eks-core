@@ -7,7 +7,7 @@ module "iam_assumable_role_cert_manager" {
   role_description         = "cert-manager role for cluster ${module.eks.cluster_id}"
   role_policy_arns         = [aws_iam_policy.cert_manager.arn]
   provider_url             = module.eks.cluster_oidc_issuer_url
-  cluster_service_accounts = ["cert-manager"]
+  cluster_service_accounts = ["cert-manager:cert-manager"]
   tags = {
     cluster = var.cluster_name
   }

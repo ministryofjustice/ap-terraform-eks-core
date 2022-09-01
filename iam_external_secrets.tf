@@ -7,7 +7,7 @@ module "iam_assumable_role_external_secrets" {
   role_description         = "external_secrets role for cluster ${module.eks.cluster_id}"
   role_policy_arns         = [aws_iam_policy.external_secrets.arn]
   provider_url             = module.eks.cluster_oidc_issuer_url
-  cluster_service_accounts = ["external-secrets"]
+  cluster_service_accounts = ["external-secrets:external-secrets"]
   tags = {
     cluster = var.cluster_name
   }
