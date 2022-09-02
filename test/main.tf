@@ -13,7 +13,7 @@ module "eks_cluster" {
   source = "./.."
 
   # This needs specifiying properly
-  map_roles                   = {}
+  map_roles                   = []
   subnets                     = module.vpc.private_subnets
   cluster_name                = local.cluster_name
   cluster_version             = "1.21"
