@@ -1,5 +1,5 @@
 <!-- BEGIN_TF_DOCS -->
-## Requirements 
+## Requirements
 
 | Name | Version |
 |------|---------|
@@ -18,10 +18,10 @@
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_eks"></a> [eks](#module\_eks) | terraform-aws-modules/eks/aws | 17.18.0 |
-| <a name="module_iam_assumable_role_cert_manager"></a> [iam\_assumable\_role\_cert\_manager](#module\_iam\_assumable\_role\_cert\_manager) | terraform-aws-modules/iam/aws//modules/iam-assumable-role-with-oidc | 3.13.0 |
-| <a name="module_iam_assumable_role_cluster_autoscaler"></a> [iam\_assumable\_role\_cluster\_autoscaler](#module\_iam\_assumable\_role\_cluster\_autoscaler) | terraform-aws-modules/iam/aws//modules/iam-assumable-role-with-oidc | 3.8.0 |
-| <a name="module_iam_assumable_role_external_dns"></a> [iam\_assumable\_role\_external\_dns](#module\_iam\_assumable\_role\_external\_dns) | terraform-aws-modules/iam/aws//modules/iam-assumable-role-with-oidc | 3.8.0 |
-| <a name="module_iam_assumable_role_external_secrets"></a> [iam\_assumable\_role\_external\_secrets](#module\_iam\_assumable\_role\_external\_secrets) | terraform-aws-modules/iam/aws//modules/iam-assumable-role-with-oidc | 3.8.0 |
+| <a name="module_iam_assumable_role_cert_manager"></a> [iam\_assumable\_role\_cert\_manager](#module\_iam\_assumable\_role\_cert\_manager) | git@github.com:ministryofjustice/ap-terraform-iam-roles.git//eks-role | v1.3.0 |
+| <a name="module_iam_assumable_role_cluster_autoscaler"></a> [iam\_assumable\_role\_cluster\_autoscaler](#module\_iam\_assumable\_role\_cluster\_autoscaler) | git@github.com:ministryofjustice/ap-terraform-iam-roles.git//eks-role | v1.3.0 |
+| <a name="module_iam_assumable_role_external_dns"></a> [iam\_assumable\_role\_external\_dns](#module\_iam\_assumable\_role\_external\_dns) | git@github.com:ministryofjustice/ap-terraform-iam-roles.git//eks-role | v1.3.0 |
+| <a name="module_iam_assumable_role_external_secrets"></a> [iam\_assumable\_role\_external\_secrets](#module\_iam\_assumable\_role\_external\_secrets) | git@github.com:ministryofjustice/ap-terraform-iam-roles.git//eks-role | v1.3.0 |
 
 ## Resources
 
