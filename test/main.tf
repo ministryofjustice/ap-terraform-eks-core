@@ -16,20 +16,20 @@ module "eks_cluster" {
   map_roles                   = {}
   subnets                     = module.vpc.private_subnets
   cluster_name                = local.cluster_name
-  cluster_version             = ""
-  cluster_node_group_version  = ""
-  cluster_vpc_cni_version     = ""
-  cluster_coredns_version     = ""
-  cluster_kube_proxy_version  = ""
-  cluster_node_instance_types = ""
-  desired_capacity            = ""
-  disk_size                   = ""
-  max_capacity                = ""
-  min_capacity                = ""
-  vpc_id                      = ""
+  cluster_version             = "1.21"
+  cluster_node_group_version  = "1.21"
+  cluster_vpc_cni_version     = "1.9.0-eksbuild.1"
+  cluster_coredns_version     = "v1.8.4-eksbuild.1"
+  cluster_kube_proxy_version  = "v1.21.2-eksbuild.2"
+  cluster_node_instance_types = "r5.2xlarge"
+  desired_capacity            = 3
+  disk_size                   = 50
+  max_capacity                = 6
+  min_capacity                = 3
+  vpc_id                      = module.vpc.vpc_id
 
   # You will likely have to use a fake ARN here
-  route53_zone_arn = ""
+  route53_zone_arn = "arn:aws:route53:::hostedzone/Z111XEXAMPLE9"
 
 }
 
