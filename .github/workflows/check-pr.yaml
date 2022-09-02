@@ -1,8 +1,5 @@
 name: Quality Assurance
 
-runner:
-  temp: "/home/runner/_temp"
-
 on:
   workflow_dispatch:
   pull_request:
