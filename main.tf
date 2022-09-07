@@ -21,6 +21,9 @@ module "eks" {
   node_groups = {
     main_node_pool = {
       instance_types                       = [var.main_nodegroup_instance_types]
+      min_capacity                         = var.main_nodegroup_min_capacity
+      max_capacity                         = var.main_nodegroup_max_capacity
+      desired_capacity                     = var.main_nodegroup_desired_capacity
       create_launch_template               = true
       metadata_http_endpoint               = "enabled"
       metadata_http_put_response_hop_limit = 1
@@ -29,6 +32,9 @@ module "eks" {
     }
     core_infra_node_pool = {
       instance_types                       = [var.core_infra_nodegroup_instance_types]
+      min_capacity                         = var.core_infra_nodegroup_min_capacity
+      max_capacity                         = var.core_infra_nodegroup_max_capacity
+      desired_capacity                     = var.core_infra_nodegroup_desired_capacity
       create_launch_template               = true
       metadata_http_endpoint               = "enabled"
       metadata_http_put_response_hop_limit = 1
@@ -47,12 +53,9 @@ module "eks" {
     }
   }
   node_groups_defaults = {
-    ami_type         = "AL2_x86_64" # Amazon Linux 2
-    desired_capacity = var.desired_capacity
-    disk_size        = var.disk_size
-    max_capacity     = var.max_capacity
-    min_capacity     = var.min_capacity
-    version          = var.cluster_node_group_version
+    ami_type  = "AL2_x86_64" # Amazon Linux 2
+    disk_size = var.disk_size
+    version   = var.cluster_node_group_version
   }
   subnets                     = var.subnets
   vpc_id                      = var.vpc_id

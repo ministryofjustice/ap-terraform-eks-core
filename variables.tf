@@ -52,23 +52,38 @@ variable "core_infra_nodegroup_instance_types" {
   type        = string
 }
 
-variable "desired_capacity" {
+variable "main_nodegroup_min_capacity" {
+  description = "The minimum capacity for the EKS node group"
+  type        = number
+}
+
+variable "main_nodegroup_max_capacity" {
+  description = "The maximum capacity for the EKS node group"
+  type        = number
+}
+
+variable "main_nodegroup_desired_capacity" {
+  description = "The desired capacity for the EKS node group"
+  type        = number
+}
+
+variable "core_infra_nodegroup_min_capacity" {
+  description = "The minimum capacity for the EKS node group"
+  type        = number
+}
+
+variable "core_infra_nodegroup_max_capacity" {
+  description = "The maximum capacity for the EKS node group"
+  type        = number
+}
+
+variable "core_infra_nodegroup_desired_capacity" {
   description = "The desired capacity for the EKS node group"
   type        = number
 }
 
 variable "disk_size" {
   description = "The desired capacity for the EKS node group "
-  type        = number
-}
-
-variable "max_capacity" {
-  description = "The maximum capacity for the EKS node group"
-  type        = number
-}
-
-variable "min_capacity" {
-  description = "The minimum capacity for the EKS node group"
   type        = number
 }
 
