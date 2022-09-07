@@ -52,13 +52,16 @@
 | <a name="input_cluster_node_group_version"></a> [cluster\_node\_group\_version](#input\_cluster\_node\_group\_version) | The K8S version of the EKS node group to provision | `string` | n/a | yes |
 | <a name="input_cluster_version"></a> [cluster\_version](#input\_cluster\_version) | The K8S version of the EKS control plane to provision | `string` | n/a | yes |
 | <a name="input_cluster_vpc_cni_version"></a> [cluster\_vpc\_cni\_version](#input\_cluster\_vpc\_cni\_version) | Version of the VPC CNI add on | `string` | n/a | yes |
+| <a name="input_core_infra_nodegroup_desired_capacity"></a> [core\_infra\_nodegroup\_desired\_capacity](#input\_core\_infra\_nodegroup\_desired\_capacity) | The desired capacity for the EKS node group | `number` | n/a | yes |
 | <a name="input_core_infra_nodegroup_instance_types"></a> [core\_infra\_nodegroup\_instance\_types](#input\_core\_infra\_nodegroup\_instance\_types) | EC2 instance types to be used for the core infra EKS nodegroup | `string` | n/a | yes |
-| <a name="input_desired_capacity"></a> [desired\_capacity](#input\_desired\_capacity) | The desired capacity for the EKS node group | `number` | n/a | yes |
+| <a name="input_core_infra_nodegroup_max_capacity"></a> [core\_infra\_nodegroup\_max\_capacity](#input\_core\_infra\_nodegroup\_max\_capacity) | The maximum capacity for the EKS node group | `number` | n/a | yes |
+| <a name="input_core_infra_nodegroup_min_capacity"></a> [core\_infra\_nodegroup\_min\_capacity](#input\_core\_infra\_nodegroup\_min\_capacity) | The minimum capacity for the EKS node group | `number` | n/a | yes |
 | <a name="input_disk_size"></a> [disk\_size](#input\_disk\_size) | The desired capacity for the EKS node group | `number` | n/a | yes |
+| <a name="input_main_nodegroup_desired_capacity"></a> [main\_nodegroup\_desired\_capacity](#input\_main\_nodegroup\_desired\_capacity) | The desired capacity for the EKS node group | `number` | n/a | yes |
 | <a name="input_main_nodegroup_instance_types"></a> [main\_nodegroup\_instance\_types](#input\_main\_nodegroup\_instance\_types) | EC2 instance types to be used for the main EKS nodegroup | `string` | n/a | yes |
+| <a name="input_main_nodegroup_max_capacity"></a> [main\_nodegroup\_max\_capacity](#input\_main\_nodegroup\_max\_capacity) | The maximum capacity for the EKS node group | `number` | n/a | yes |
+| <a name="input_main_nodegroup_min_capacity"></a> [main\_nodegroup\_min\_capacity](#input\_main\_nodegroup\_min\_capacity) | The minimum capacity for the EKS node group | `number` | n/a | yes |
 | <a name="input_map_roles"></a> [map\_roles](#input\_map\_roles) | Additional IAM roles to add to the aws-auth configmap. | <pre>list(object({<br>    rolearn  = string<br>    username = string<br>    groups   = list(string)<br>  }))</pre> | n/a | yes |
-| <a name="input_max_capacity"></a> [max\_capacity](#input\_max\_capacity) | The maximum capacity for the EKS node group | `number` | n/a | yes |
-| <a name="input_min_capacity"></a> [min\_capacity](#input\_min\_capacity) | The minimum capacity for the EKS node group | `number` | n/a | yes |
 | <a name="input_route53_zone_arn"></a> [route53\_zone\_arn](#input\_route53\_zone\_arn) | The route53 zone ID for the cluster's domain | `string` | n/a | yes |
 | <a name="input_subnets"></a> [subnets](#input\_subnets) | List of private subnet address ranges in CIDR format | `list(string)` | n/a | yes |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | ID of the VPC to create the cluster in | `string` | n/a | yes |
