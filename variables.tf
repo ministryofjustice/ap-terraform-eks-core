@@ -42,28 +42,48 @@ variable "cluster_kube_proxy_version" {
   type        = string
 }
 
-variable "cluster_node_instance_types" {
-  description = "cluster_node_instance_types"
+variable "main_nodegroup_instance_types" {
+  description = "EC2 instance types to be used for the main EKS nodegroup"
   type        = string
 }
 
-variable "desired_capacity" {
+variable "core_infra_nodegroup_instance_types" {
+  description = "EC2 instance types to be used for the core infra EKS nodegroup"
+  type        = string
+}
+
+variable "main_nodegroup_min_capacity" {
+  description = "The minimum capacity for the EKS node group"
+  type        = number
+}
+
+variable "main_nodegroup_max_capacity" {
+  description = "The maximum capacity for the EKS node group"
+  type        = number
+}
+
+variable "main_nodegroup_desired_capacity" {
+  description = "The desired capacity for the EKS node group"
+  type        = number
+}
+
+variable "core_infra_nodegroup_min_capacity" {
+  description = "The minimum capacity for the EKS node group"
+  type        = number
+}
+
+variable "core_infra_nodegroup_max_capacity" {
+  description = "The maximum capacity for the EKS node group"
+  type        = number
+}
+
+variable "core_infra_nodegroup_desired_capacity" {
   description = "The desired capacity for the EKS node group"
   type        = number
 }
 
 variable "disk_size" {
   description = "The desired capacity for the EKS node group "
-  type        = number
-}
-
-variable "max_capacity" {
-  description = "The maximum capacity for the EKS node group"
-  type        = number
-}
-
-variable "min_capacity" {
-  description = "The minimum capacity for the EKS node group"
   type        = number
 }
 
