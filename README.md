@@ -28,7 +28,6 @@
 | Name | Type |
 |------|------|
 | [aws_eks_addon.coredns](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_addon) | resource |
-| [aws_eks_addon.kube_proxy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_addon) | resource |
 | [aws_eks_addon.vpc_cni](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_addon) | resource |
 | [aws_iam_policy.cert_manager](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
 | [aws_iam_policy.cluster_autoscaler](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
@@ -47,7 +46,6 @@
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_cluster_coredns_version"></a> [cluster\_coredns\_version](#input\_cluster\_coredns\_version) | Version of the CoreDNS add on | `string` | n/a | yes |
-| <a name="input_cluster_kube_proxy_version"></a> [cluster\_kube\_proxy\_version](#input\_cluster\_kube\_proxy\_version) | Version of the KubeProxy add on | `string` | n/a | yes |
 | <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | The K8S version of the EKS control plane to provision | `string` | n/a | yes |
 | <a name="input_cluster_node_group_version"></a> [cluster\_node\_group\_version](#input\_cluster\_node\_group\_version) | The K8S version of the EKS node group to provision | `string` | n/a | yes |
 | <a name="input_cluster_version"></a> [cluster\_version](#input\_cluster\_version) | The K8S version of the EKS control plane to provision | `string` | n/a | yes |
