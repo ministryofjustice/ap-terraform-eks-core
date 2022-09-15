@@ -37,11 +37,6 @@ variable "cluster_coredns_version" {
   type        = string
 }
 
-variable "cluster_kube_proxy_version" {
-  description = "Version of the KubeProxy add on"
-  type        = string
-}
-
 variable "main_nodegroup_instance_types" {
   description = "EC2 instance types to be used for the main EKS nodegroup"
   type        = string
