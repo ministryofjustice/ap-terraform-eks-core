@@ -17,3 +17,13 @@ resource "aws_eks_addon" "vpc_cni" {
   cluster_name      = module.eks.cluster_id
   resolve_conflicts = "OVERWRITE"
 }
+
+resource "aws_eks_addon" "ebs_csi" {
+  depends_on = [
+    module.eks
+  ]
+  addon_name        = "ebs-csi"
+  addon_version     = var.cluster_ebs_csi_version
+  cluster_name      = module.eks.cluster_id
+  resolve_conflicts = "OVERWRITE"
+}

@@ -32,6 +32,11 @@ variable "cluster_vpc_cni_version" {
   type        = string
 }
 
+variable "cluster_ebs_csi_version" {
+  description = "Version of the EBS CSI add on"
+  type        = string
+}
+
 variable "cluster_coredns_version" {
   description = "Version of the CoreDNS add on"
   type        = string
