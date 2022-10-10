@@ -29,6 +29,7 @@
 |------|------|
 | [aws_eks_addon.coredns](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_addon) | resource |
 | [aws_eks_addon.vpc_cni](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_addon) | resource |
+| [aws_eks_identity_provider_config.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_identity_provider_config) | resource |
 | [aws_iam_policy.cert_manager](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
 | [aws_iam_policy.cluster_autoscaler](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
 | [aws_iam_policy.external_dns](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
@@ -54,12 +55,15 @@
 | <a name="input_core_infra_nodegroup_instance_types"></a> [core\_infra\_nodegroup\_instance\_types](#input\_core\_infra\_nodegroup\_instance\_types) | EC2 instance types to be used for the core infra EKS nodegroup | `string` | n/a | yes |
 | <a name="input_core_infra_nodegroup_max_capacity"></a> [core\_infra\_nodegroup\_max\_capacity](#input\_core\_infra\_nodegroup\_max\_capacity) | The maximum capacity for the EKS node group | `number` | n/a | yes |
 | <a name="input_core_infra_nodegroup_min_capacity"></a> [core\_infra\_nodegroup\_min\_capacity](#input\_core\_infra\_nodegroup\_min\_capacity) | The minimum capacity for the EKS node group | `number` | n/a | yes |
+| <a name="input_create_timeout"></a> [create\_timeout](#input\_create\_timeout) | value | `string` | `"60m"` | no |
+| <a name="input_delete_timeout"></a> [delete\_timeout](#input\_delete\_timeout) | value | `string` | `"60m"` | no |
 | <a name="input_disk_size"></a> [disk\_size](#input\_disk\_size) | The desired capacity for the EKS node group | `number` | n/a | yes |
 | <a name="input_main_nodegroup_desired_capacity"></a> [main\_nodegroup\_desired\_capacity](#input\_main\_nodegroup\_desired\_capacity) | The desired capacity for the EKS node group | `number` | n/a | yes |
 | <a name="input_main_nodegroup_instance_types"></a> [main\_nodegroup\_instance\_types](#input\_main\_nodegroup\_instance\_types) | EC2 instance types to be used for the main EKS nodegroup | `string` | n/a | yes |
 | <a name="input_main_nodegroup_max_capacity"></a> [main\_nodegroup\_max\_capacity](#input\_main\_nodegroup\_max\_capacity) | The maximum capacity for the EKS node group | `number` | n/a | yes |
 | <a name="input_main_nodegroup_min_capacity"></a> [main\_nodegroup\_min\_capacity](#input\_main\_nodegroup\_min\_capacity) | The minimum capacity for the EKS node group | `number` | n/a | yes |
 | <a name="input_map_roles"></a> [map\_roles](#input\_map\_roles) | Additional IAM roles to add to the aws-auth configmap. | <pre>list(object({<br>    rolearn  = string<br>    username = string<br>    groups   = list(string)<br>  }))</pre> | n/a | yes |
+| <a name="input_org_name"></a> [org\_name](#input\_org\_name) | Organisation the EKS cluster should trust | `string` | n/a | yes |
 | <a name="input_route53_zone_arn"></a> [route53\_zone\_arn](#input\_route53\_zone\_arn) | The route53 zone ID for the cluster's domain | `string` | n/a | yes |
 | <a name="input_subnets"></a> [subnets](#input\_subnets) | List of private subnet address ranges in CIDR format | `list(string)` | n/a | yes |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | ID of the VPC to create the cluster in | `string` | n/a | yes |
