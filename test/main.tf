@@ -5,6 +5,7 @@ locals {
   vpc_cidr               = "10.69.0.0/16"
   vpc_private_subnets    = ["10.69.96.0/20", "10.69.112.0/20", "10.69.128.0/20"]
   vpc_public_subnets     = ["10.69.144.0/20", "10.69.160.0/20", "10.69.176.0/20"]
+  org_name               = "ministryofjustice"
 
   # Add more locals as required
 }
@@ -31,6 +32,7 @@ module "eks_cluster" {
   core_infra_nodegroup_desired_capacity = 3
   disk_size                             = 50
   vpc_id                                = module.vpc.vpc_id
+  org_name                              = local.org_name
 
   # You will likely have to use a fake ARN here
   route53_zone_arn = "arn:aws:route53:::hostedzone/Z111XEXAMPLE9"
