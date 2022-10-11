@@ -22,7 +22,7 @@ resource "aws_eks_addon" "ebs_csi" {
   depends_on = [
     module.eks
   ]
-  addon_name        = "ebs-csi"
+  addon_name        = "aws-ebs-csi-driver"
   addon_version     = var.cluster_ebs_csi_version
   cluster_name      = module.eks.cluster_id
   resolve_conflicts = "OVERWRITE"
