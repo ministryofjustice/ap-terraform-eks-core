@@ -20,10 +20,12 @@ resource "aws_eks_addon" "vpc_cni" {
 
 resource "aws_eks_addon" "ebs_csi" {
   depends_on = [
-    module.eks
+    module.eks,
+    module.iam_assumable_role_ebs_csi_driver
   ]
-  addon_name        = "aws-ebs-csi-driver"
-  addon_version     = var.cluster_ebs_csi_version
-  cluster_name      = module.eks.cluster_id
-  resolve_conflicts = "OVERWRITE"
+  addon_name               = "aws-ebs-csi-driver"
+  addon_version            = var.cluster_ebs_csi_version
+  cluster_name             = module.eks.cluster_id
+  resolve_conflicts        = "OVERWRITE"
+  service_account_role_arn = module.iam_assumable_role_ebs_csi_driver.iam_role_arn
 }
