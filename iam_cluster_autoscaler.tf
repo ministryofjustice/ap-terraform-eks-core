@@ -7,7 +7,7 @@ module "iam_assumable_role_cluster_autoscaler" {
   role_description         = "EKS cluster-autoscaler role for cluster ${module.eks.cluster_id}"
   role_policy_arns         = [aws_iam_policy.cluster_autoscaler.arn]
   provider_url             = module.eks.cluster_oidc_issuer_url
-  cluster_service_accounts = ["cluster-autoscaler:cluster-autoscaler"]
+  cluster_service_accounts = ["kube-system:cluster-autoscaler"]
   tags = {
     cluster = var.cluster_name
   }
