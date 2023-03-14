@@ -1,5 +1,5 @@
 module "iam_assumable_role_ebs_csi_driver" {
-  source = "git@github.com:ministryofjustice/ap-terraform-iam-roles.git//eks-role?ref=v1.3.0"
+  source = "github.com/ministryofjustice/ap-terraform-iam-roles//eks-role?ref=v1.4.0"
   depends_on = [
     module.eks
   ]
