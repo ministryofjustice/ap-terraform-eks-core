@@ -21,7 +21,7 @@ module "eks_cluster" {
   cluster_node_group_version            = "1.21"
   cluster_vpc_cni_version               = "v1.9.0-eksbuild.1"
   cluster_coredns_version               = "v1.8.4-eksbuild.1"
-  cluster_kube_proxy_version            = "v1.21.2-eksbuild.2"
+  cluster_ebs_csi_version               = "v1.11.4-eksbuild.1"
   main_nodegroup_instance_types         = "r5.2xlarge"
   core_infra_nodegroup_instance_types   = "r5.4xlarge"
   main_nodegroup_min_capacity           = 3
