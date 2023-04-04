@@ -4,34 +4,37 @@
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.14 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 3.71.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 3.71.0 |
 | <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | >= 2.10 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | ~> 3.71.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 3.71.0 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_eks"></a> [eks](#module\_eks) | terraform-aws-modules/eks/aws | 17.18.0 |
-| <a name="module_iam_assumable_role_cert_manager"></a> [iam\_assumable\_role\_cert\_manager](#module\_iam\_assumable\_role\_cert\_manager) | git@github.com:ministryofjustice/ap-terraform-iam-roles.git//eks-role | v1.3.0 |
-| <a name="module_iam_assumable_role_cluster_autoscaler"></a> [iam\_assumable\_role\_cluster\_autoscaler](#module\_iam\_assumable\_role\_cluster\_autoscaler) | git@github.com:ministryofjustice/ap-terraform-iam-roles.git//eks-role | v1.3.0 |
-| <a name="module_iam_assumable_role_external_dns"></a> [iam\_assumable\_role\_external\_dns](#module\_iam\_assumable\_role\_external\_dns) | git@github.com:ministryofjustice/ap-terraform-iam-roles.git//eks-role | v1.3.0 |
-| <a name="module_iam_assumable_role_external_secrets"></a> [iam\_assumable\_role\_external\_secrets](#module\_iam\_assumable\_role\_external\_secrets) | git@github.com:ministryofjustice/ap-terraform-iam-roles.git//eks-role | v1.3.0 |
+| <a name="module_iam_assumable_role_cert_manager"></a> [iam\_assumable\_role\_cert\_manager](#module\_iam\_assumable\_role\_cert\_manager) | github.com/ministryofjustice/ap-terraform-iam-roles//eks-role | v1.4.0 |
+| <a name="module_iam_assumable_role_cluster_autoscaler"></a> [iam\_assumable\_role\_cluster\_autoscaler](#module\_iam\_assumable\_role\_cluster\_autoscaler) | github.com/ministryofjustice/ap-terraform-iam-roles//eks-role | v1.4.0 |
+| <a name="module_iam_assumable_role_ebs_csi_driver"></a> [iam\_assumable\_role\_ebs\_csi\_driver](#module\_iam\_assumable\_role\_ebs\_csi\_driver) | github.com/ministryofjustice/ap-terraform-iam-roles//eks-role | v1.4.0 |
+| <a name="module_iam_assumable_role_external_dns"></a> [iam\_assumable\_role\_external\_dns](#module\_iam\_assumable\_role\_external\_dns) | github.com/ministryofjustice/ap-terraform-iam-roles//eks-role | v1.4.0 |
+| <a name="module_iam_assumable_role_external_secrets"></a> [iam\_assumable\_role\_external\_secrets](#module\_iam\_assumable\_role\_external\_secrets) | github.com/ministryofjustice/ap-terraform-iam-roles//eks-role | v1.4.0 |
 
 ## Resources
 
 | Name | Type |
 |------|------|
 | [aws_eks_addon.coredns](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_addon) | resource |
+| [aws_eks_addon.ebs_csi](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_addon) | resource |
 | [aws_eks_addon.vpc_cni](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_addon) | resource |
 | [aws_eks_identity_provider_config.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_identity_provider_config) | resource |
 | [aws_iam_policy.cert_manager](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
 | [aws_iam_policy.cluster_autoscaler](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
+| [aws_iam_policy.ebs_csi_driver](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
 | [aws_iam_policy.external_dns](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
 | [aws_iam_policy.external_secrets](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
 | [aws_iam_role_policy_attachment.eks_worker_cloudwatch_agent](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) | resource |
@@ -39,6 +42,7 @@
 | [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
 | [aws_iam_policy_document.cert_manager](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
 | [aws_iam_policy_document.cluster_autoscaler](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
+| [aws_iam_policy_document.ebs_csi_driver](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
 | [aws_iam_policy_document.external_dns](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
 | [aws_iam_policy_document.external_secrets](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
 
@@ -47,6 +51,7 @@
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_cluster_coredns_version"></a> [cluster\_coredns\_version](#input\_cluster\_coredns\_version) | Version of the CoreDNS add on | `string` | n/a | yes |
+| <a name="input_cluster_ebs_csi_version"></a> [cluster\_ebs\_csi\_version](#input\_cluster\_ebs\_csi\_version) | Version of the EBS CSI add on | `string` | n/a | yes |
 | <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | The K8S version of the EKS control plane to provision | `string` | n/a | yes |
 | <a name="input_cluster_node_group_version"></a> [cluster\_node\_group\_version](#input\_cluster\_node\_group\_version) | The K8S version of the EKS node group to provision | `string` | n/a | yes |
 | <a name="input_cluster_version"></a> [cluster\_version](#input\_cluster\_version) | The K8S version of the EKS control plane to provision | `string` | n/a | yes |
