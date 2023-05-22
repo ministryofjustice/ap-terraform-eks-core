@@ -1,5 +1,5 @@
 module "iam_assumable_role_cluster_autoscaler" {
-  source = "github.com/ministryofjustice/ap-terraform-iam-roles//eks-role?ref=v1.4.0"
+  source = "github.com/ministryofjustice/ap-terraform-iam-roles//eks-role?ref=v1.4.2"
   depends_on = [
     module.eks
   ]
